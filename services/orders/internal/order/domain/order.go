@@ -30,3 +30,12 @@ var statusTitle = map[OrderStatus]string{
 func (os OrderStatus) String() string {
 	return statusTitle[os]
 }
+
+func (os OrderStatus) Valid() bool {
+	switch os {
+	case Submitted, Approved, Failed:
+		return true
+	default:
+		return false
+	}
+}
